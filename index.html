@@ -28,99 +28,100 @@
   </head>
   <body>
     <div class="container">
-      <div class="card mt-5 p-2 p-md-4 main-container">
-        <div class="card-body">
-          <div class="row">
-            <!-- Left Column -->
-            <div class="col-12 col-md-6 col-lg-5 border-end">
-              <div class="d-flex justify-content-start">
-                <h1 class="me-2 current-city">London, GB</h1>
-                <i class="fas fa-sync-alt btn-refresh"></i>
-              </div>
-              <h4 class="pb-3"><strong>Sunday 11 July</strong> 12:00</h4>
-              <div class="d-flex justify-content-start mt-5">
-                <img
-                  src="https://openweathermap.org/img/wn/02d@2x.png"
-                  alt=""
-                  class="current-weather-icon me-4"
-                />
-                <div class="float-start me-4">
-                  <h2 class="current-temperature">19°C</h2>
-                  <h4 class="current-condition">Clouds</h4>
+      <div class="main-wrapper">
+        <div class="card mt-5 p-2 p-md-4">
+          <div class="card-body">
+            <div class="row">
+              <!-- Current Weather Column -->
+              <div class="col-12 col-md-6 col-lg-5 border-end">
+                <div class="d-flex justify-content-start">
+                  <h1 class="me-2 current-city">London, GB</h1>
+                  <i class="fas fa-sync-alt btn-refresh"></i>
                 </div>
-                <button class="btn btn-outline-secondary btn-toggle-units">
-                  °F
-                </button>
-              </div>
-            </div>
-            <!-- Right Column -->
-            <div class="col">
-              <!-- Icon Row 1 -->
-              <div class="row align-items-start pb-2">
-                <div class="col">
-                  <img src="images/high-temp.svg" alt="" class="icn-small" />
-                </div>
-                <div class="col">
-                  <img src="images/wind.svg" alt="" class="icn-x-small" />
-                </div>
-                <div class="col">
-                  <img src="images/sunrise.svg" alt="" class="icn-x-small" />
+                <h4 class="pb-3"><strong>Sunday 11 July</strong> 12:00</h4>
+                <div class="d-flex justify-content-start mt-5">
+                  <img
+                    src="https://openweathermap.org/img/wn/02d@2x.png"
+                    alt=""
+                    class="current-weather-icon me-4"
+                  />
+                  <div class="float-start me-4">
+                    <h2 class="current-temperature">19°C</h2>
+                    <h4 class="current-condition">Clouds</h4>
+                  </div>
+                  <button class="btn btn-outline-secondary btn-toggle-units">
+                    °F
+                  </button>
                 </div>
               </div>
-              <div class="row align-items-start mb-5">
-                <div class="col data-label">
-                  <h4>21°</h4>
-                  <p>High</p>
+              <!-- Data Block Column -->
+              <div class="col">
+                <!-- Data Block Row 1 -->
+                <div class="row align-items-start pb-2">
+                  <div class="col">
+                    <img src="images/high-temp.svg" alt="" class="icn-small" />
+                  </div>
+                  <div class="col">
+                    <img src="images/wind.svg" alt="" class="icn-x-small" />
+                  </div>
+                  <div class="col">
+                    <img src="images/sunrise.svg" alt="" class="icn-x-small" />
+                  </div>
                 </div>
-                <div class="col data-label">
-                  <h4>3km/h</h4>
-                  <p>Wind</p>
+                <div class="row align-items-start mb-5">
+                  <div class="col data-label">
+                    <h4>21°</h4>
+                    <p>High</p>
+                  </div>
+                  <div class="col data-label">
+                    <h4>3km/h</h4>
+                    <p>Wind</p>
+                  </div>
+                  <div class="col data-label">
+                    <h4>05:06</h4>
+                    <p>Sunrise</p>
+                  </div>
                 </div>
-                <div class="col data-label">
-                  <h4>05:06</h4>
-                  <p>Sunrise</p>
+                <!-- Data Block Row 2 -->
+                <div class="row align-items-start pb-2">
+                  <div class="col">
+                    <img src="images/low-temp.svg" alt="" class="icn-small" />
+                  </div>
+                  <div class="col">
+                    <img src="images/rain.svg" alt="" class="icn-small" />
+                  </div>
+                  <div class="col">
+                    <img src="images/sunset.svg" alt="" class="icn-x-small" />
+                  </div>
+                </div>
+                <div class="row align-items-start mb-5">
+                  <div class="col data-label">
+                    <h4>17°</h4>
+                    <p>Low</p>
+                  </div>
+                  <div class="col data-label">
+                    <h4>10%</h4>
+                    <p>Rain</p>
+                  </div>
+                  <div class="col data-label">
+                    <h4>21:06</h4>
+                    <p>Sunset</p>
+                  </div>
                 </div>
               </div>
-              <!-- Icon Row 1 End -->
-              <!-- Icon Row 2 Start -->
-              <div class="row align-items-start pb-2">
-                <div class="col">
-                  <img src="images/low-temp.svg" alt="" class="icn-small" />
-                </div>
-                <div class="col">
-                  <img src="images/rain.svg" alt="" class="icn-small" />
-                </div>
-                <div class="col">
-                  <img src="images/sunset.svg" alt="" class="icn-x-small" />
-                </div>
-              </div>
-              <div class="row align-items-start mb-5">
-                <div class="col data-label">
-                  <h4>17°</h4>
-                  <p>Low</p>
-                </div>
-                <div class="col data-label">
-                  <h4>10%</h4>
-                  <p>Rain</p>
-                </div>
-                <div class="col data-label">
-                  <h4>21:06</h4>
-                  <p>Sunset</p>
-                </div>
-              </div>
-              <!-- Icon Row 2 End -->
+              <!-- Data Block Column End -->
             </div>
           </div>
         </div>
+        <small>
+          <a
+            href="https://github.com/sarahkate87/live-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Sarah Beverstock
+        </small>
       </div>
-      <small>
-        <a
-          href="https://github.com/sarahkate87/live-weather-app"
-          target="_blank"
-          >Open-source code</a
-        >
-        by Sarah Beverstock
-      </small>
     </div>
     <script src="src/app.js"></script>
   </body>

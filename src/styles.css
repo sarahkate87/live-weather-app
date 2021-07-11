@@ -1,0 +1,93 @@
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.main-wrapper {
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Current Weather Column - Start */
+.current-city {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.current-weather-icon {
+  height: 100px;
+}
+
+.current-temperature {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.current-condition {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+/* Current Weather Column - End */
+
+/* Refresh Button - Start */
+.btn-refresh {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 12px;
+}
+/* Refresh Button - End */
+
+/* Toggle Units Button - Start */
+.btn-toggle-units {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  height: fit-content;
+}
+/* Toggle Units Button - End */
+
+/* Data Icons - Start */
+.icn-x-small,
+.icn-small {
+  display: block;
+  margin: 0 auto;
+}
+.icn-x-small {
+  height: 20px;
+}
+.icn-small {
+  height: 25px;
+}
+/* Data Icons - End */
+
+/* Data Text - Start */
+.data-label {
+  text-align: center;
+  line-height: 20px;
+}
+
+.data-label h4 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.data-label p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+/* Data Text - End */
+
+.footer-link {
+  text-align: center;
+}
