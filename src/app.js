@@ -96,4 +96,21 @@ function handleSearch(event) {
 let searchForm = document.querySelector("#update-search");
 searchForm.addEventListener("submit", handleSearch);
 
+function searchLocation(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let apiKey = "9e5720bf1c8d5cf0a9989c3fb45bc7a2";
+  let geoApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+
+  axios.get(geoApiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let currentLocation = document.querySelector("#geolocate");
+currentLocation.addEventListener("click", getCurrentLocation);
+
 searchCity("London");
