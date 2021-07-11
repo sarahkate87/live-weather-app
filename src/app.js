@@ -56,6 +56,22 @@ function displayTemperature(response) {
   document.querySelector("#time").innerHTML = formatTime(
     response.data.dt * 1000
   );
+  document.querySelector("#high-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#low-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#sunrise").innerHTML = formatTime(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = formatTime(
+    response.data.sys.sunset * 1000
+  );
 }
 
 let apiKey = "9e5720bf1c8d5cf0a9989c3fb45bc7a2";
