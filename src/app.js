@@ -80,7 +80,20 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "9e5720bf1c8d5cf0a9989c3fb45bc7a2";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiKey = "9e5720bf1c8d5cf0a9989c3fb45bc7a2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
+}
+
+let searchForm = document.querySelector("#update-search");
+searchForm.addEventListener("submit", handleSearch);
+
+searchCity("London");

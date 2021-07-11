@@ -34,11 +34,13 @@
         <div class="card mt-5 mb-3 p-2 p-md-4">
           <div class="card-body">
             <!-- Search Input Form -->
-            <form class="input-group">
+            <form class="input-group" id="update-search">
               <input
                 type="text"
                 class="form-control location-input"
                 placeholder="Change location"
+                id="city-input"
+                autocomplete="off"
               />
               <input
                 type="submit"
@@ -60,8 +62,8 @@
                   <i class="fas fa-sync-alt btn-refresh"></i>
                 </div>
                 <h4 class="pb-3 current-date">
-                  <span id="date">Sunday 11 July</span>
-                  <span id="time" class="current-time">12:00</span>
+                  <span id="date"></span>
+                  <span id="time" class="current-time"></span>
                 </h4>
                 <div class="d-flex justify-content-start mt-5 temp-wrapper">
                   <img
