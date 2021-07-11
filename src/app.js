@@ -43,6 +43,9 @@ function formatTime(timestamp) {
 }
 
 function displayTemperature(response) {
+  celsiusTemperature = response.data.main.temp;
+  celsiusHighTemperature = response.data.main.temp_max;
+  celsiusLowTemperature = response.data.main.temp_min;
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
   document
@@ -51,9 +54,11 @@ function displayTemperature(response) {
       "src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document
+    .querySelector("#current-icon")
+    .setAttribute("alt", response.data.weather[0].description);
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].main;
   document.querySelector("#date").innerHTML = formatDate(
@@ -63,10 +68,10 @@ function displayTemperature(response) {
     response.data.dt * 1000
   );
   document.querySelector("#high-temp").innerHTML = Math.round(
-    response.data.main.temp_max
+    celsiusHighTemperature
   );
   document.querySelector("#low-temp").innerHTML = Math.round(
-    response.data.main.temp_min
+    celsiusLowTemperature
   );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -112,5 +117,38 @@ function getCurrentLocation(event) {
 
 let currentLocation = document.querySelector("#geolocate");
 currentLocation.addEventListener("click", getCurrentLocation);
+
+function toggleUnits(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahreinheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahreinheitTemperature);
+
+  let highTempElement = document.querySelector("#high-temp");
+  let highTemperature = (celsiusHighTemperature * 9) / 5 + 32;
+  highTempElement.innerHTML = Math.round(highTemperature);
+
+  let lowTempElement = document.querySelector("#low-temp");
+  let lowTemperature = (celsiusLowTemperature * 9) / 5 + 32;
+  lowTempElement.innerHTML = Math.round(lowTemperature);
+
+  let unit = document.querySelector("#unit-switch-value");
+  let currentUnit = document.querySelector("#degrees");
+  if (unit.innerHTML === "°F") {
+    unit.innerHTML = "°C";
+    currentUnit.innerHTML = "°F";
+  } else {
+    unit.innerHTML = "°F";
+    currentUnit.innerHTML = "°C";
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    highTempElement.innerHTML = Math.round(celsiusHighTemperature);
+    lowTempElement.innerHTML = Math.round(celsiusLowTemperature);
+  }
+}
+
+let celsiusTemperature = null;
+
+let degreeUnits = document.querySelector("#toggle-units");
+degreeUnits.addEventListener("click", toggleUnits);
 
 searchCity("London");

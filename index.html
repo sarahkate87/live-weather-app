@@ -78,12 +78,15 @@
                   />
                   <div class="float-start me-4">
                     <h2 class="current-temperature">
-                      <span id="temperature"></span>°C
+                      <span id="temperature"></span><span id="degrees">°C</span>
                     </h2>
                     <h4 id="condition" class="current-condition"></h4>
                   </div>
-                  <button class="btn btn-outline-secondary btn-toggle-units">
-                    °F
+                  <button
+                    class="btn btn-outline-secondary btn-toggle-units"
+                    id="toggle-units"
+                  >
+                    <span id="unit-switch-value">°F</span>
                   </button>
                 </div>
               </div>
