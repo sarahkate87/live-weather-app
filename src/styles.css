@@ -16,10 +16,42 @@ p {
   margin: 0 auto;
 }
 
+/* Search Input Form - Start */
+
+.update-search-btn,
+.location-input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+.location-input {
+  font-weight: 400;
+}
+
+.update-search-btn {
+  font-weight: 500;
+}
+/* Search Input Form - End */
+
 /* Current Weather Column - Start */
+.current-weather-wrapper {
+  margin: 20px 0px;
+  align-items: center;
+}
+
 .current-city {
   font-size: 38px;
   font-weight: 700;
+}
+
+.current-date {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.current-time {
+  font-size: 22px;
+  font-weight: 300;
 }
 
 .current-weather-icon {
@@ -42,7 +74,7 @@ p {
 .btn-refresh {
   font-size: 18px;
   cursor: pointer;
-  padding: 12px;
+  padding-top: 12px;
 }
 /* Refresh Button - End */
 

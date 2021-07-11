@@ -29,16 +29,34 @@
   <body>
     <div class="container">
       <div class="main-wrapper">
-        <div class="card mt-5 p-2 p-md-4">
+        <div class="card mt-5 mb-3 p-2 p-md-4">
           <div class="card-body">
-            <div class="row">
+            <!-- Search Input Form -->
+            <form class="input-group">
+              <input
+                type="text"
+                class="form-control location-input"
+                placeholder="Change location"
+              />
+              <input
+                type="submit"
+                class="btn btn-outline-secondary update-search-btn"
+                value="Update"
+              />
+              <button class="btn btn-outline-secondary" type="button">
+                <i class="fas fa-map-marker-alt"></i>
+              </button>
+            </form>
+            <div class="row mt-4 mt-md-5 current-weather-wrapper">
               <!-- Current Weather Column -->
               <div class="col-12 col-md-6 col-lg-5 border-end">
                 <div class="d-flex justify-content-start">
                   <h1 class="me-2 current-city">London, GB</h1>
                   <i class="fas fa-sync-alt btn-refresh"></i>
                 </div>
-                <h4 class="pb-3"><strong>Sunday 11 July</strong> 12:00</h4>
+                <h4 class="pb-3 current-date">
+                  Sunday 11 July <span class="current-time">12:00</span>
+                </h4>
                 <div class="d-flex justify-content-start mt-5">
                   <img
                     src="https://openweathermap.org/img/wn/02d@2x.png"
@@ -83,7 +101,7 @@
                   </div>
                 </div>
                 <!-- Data Block Row 2 -->
-                <div class="row align-items-start pb-2">
+                <div class="row align-items-start mt-5 pb-2">
                   <div class="col">
                     <img src="images/low-temp.svg" alt="" class="icn-small" />
                   </div>
@@ -94,7 +112,7 @@
                     <img src="images/sunset.svg" alt="" class="icn-x-small" />
                   </div>
                 </div>
-                <div class="row align-items-start mb-5">
+                <div class="row align-items-start">
                   <div class="col data-label">
                     <h4>17°</h4>
                     <p>Low</p>
