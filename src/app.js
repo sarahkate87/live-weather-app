@@ -45,6 +45,12 @@ function formatTime(timestamp) {
 function displayTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
+  document
+    .querySelector("#current-icon")
+    .setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );

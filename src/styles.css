@@ -58,6 +58,10 @@ p {
   height: 100px;
 }
 
+.temp-wrapper {
+  align-items: center;
+}
+
 .current-temperature {
   font-size: 36px;
   font-weight: 700;
@@ -85,6 +89,8 @@ p {
   padding: 3px 5px;
   border-radius: 3px;
   height: fit-content;
+  align-self: flex-start;
+  margin-top: 20px;
 }
 /* Toggle Units Button - End */
 
