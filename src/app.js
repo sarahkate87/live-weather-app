@@ -1,5 +1,9 @@
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let localOffset = timestamp.getTimezoneOffset() * 60 * 1000;
+  let targetOffset = localTimezone * 1000;
+  let targetTime = timestamp.getTime() + localOffset + targetOffset;
+  let localDate = new Date(targetTime);
+
   let days = [
     "Sunday",
     "Monday",
@@ -23,19 +27,23 @@ function formatDate(timestamp) {
     "Nov",
     "Dec",
   ];
-  let day = days[date.getDay()];
-  let dayNum = date.getDate();
-  let month = months[date.getMonth()];
+  let day = days[localDate.getDay()];
+  let dayNum = localDate.getDate();
+  let month = months[localDate.getMonth()];
   return `${day} ${dayNum} ${month}`;
 }
 
 function formatTime(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
+  let localOffset = timestamp.getTimezoneOffset() * 60 * 1000;
+  let targetOffset = localTimezone * 1000;
+  let targetTime = timestamp.getTime() + localOffset + targetOffset;
+  let localTime = new Date(targetTime);
+
+  let hours = localTime.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = date.getMinutes();
+  let minutes = localTime.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -46,6 +54,7 @@ function displayTemperature(response) {
   celsiusTemperature = response.data.main.temp;
   celsiusHighTemperature = response.data.main.temp_max;
   celsiusLowTemperature = response.data.main.temp_min;
+  localTimezone = response.data.timezone;
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
   document
@@ -61,12 +70,8 @@ function displayTemperature(response) {
     Math.round(celsiusTemperature);
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].main;
-  document.querySelector("#date").innerHTML = formatDate(
-    response.data.dt * 1000
-  );
-  document.querySelector("#time").innerHTML = formatTime(
-    response.data.dt * 1000
-  );
+  document.querySelector("#date").innerHTML = formatDate(new Date());
+  document.querySelector("#time").innerHTML = formatTime(new Date());
   document.querySelector("#high-temp").innerHTML = Math.round(
     celsiusHighTemperature
   );
@@ -78,10 +83,10 @@ function displayTemperature(response) {
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#sunrise").innerHTML = formatTime(
-    response.data.sys.sunrise * 1000
+    new Date(response.data.sys.sunrise * 1000)
   );
   document.querySelector("#sunset").innerHTML = formatTime(
-    response.data.sys.sunset * 1000
+    new Date(response.data.sys.sunset * 1000)
   );
 }
 
@@ -147,6 +152,7 @@ function toggleUnits(event) {
 }
 
 let celsiusTemperature = null;
+let localTimezone = null;
 
 let degreeUnits = document.querySelector("#toggle-units");
 degreeUnits.addEventListener("click", toggleUnits);
