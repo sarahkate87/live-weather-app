@@ -126,6 +126,22 @@ p {
 }
 /* Data Text - End */
 
+/* Forecast Styles - Start */
+.forecast-max-temp {
+  font-weight: 700;
+}
+
+.forecast-min-temp {
+  opacity: 0.5;
+}
+.weather-forecast {
+  text-align: center;
+}
+.forecast-img {
+  padding: 10px 0;
+}
+/* Forecast Styles - End */
+
 .footer-link {
   text-align: center;
 }
