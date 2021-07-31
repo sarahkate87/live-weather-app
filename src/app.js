@@ -93,6 +93,35 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+// Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row row-cols-5 row-cols-lg-5 g-2 g-lg-3">`;
+  let days = ["Thur", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col p-2 weather-forecast">
+                    <div class="forecast-day">${day}</div>
+                    <img
+                      src="images/sun-cloud.svg"
+                      alt=""
+                      width="60"
+                      class="forecast-img"
+                    />
+                    <div class="forecast-temps">
+                      <span class="forecast-max-temp">18°</span>
+                      <span class="forecast-min-temp">12°</span>
+                    </div>
+                  </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Temperature & Data Display
 function displayTemperature(response) {
   celsiusTemperature = response.data.main.temp;
@@ -174,3 +203,4 @@ let celsiusTemperature = null;
 let localTimezone = null;
 
 searchCity("London");
+displayForecast();

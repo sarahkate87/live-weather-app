@@ -127,6 +127,12 @@ p {
 /* Data Text - End */
 
 /* Forecast Styles - Start */
+.forecast-title {
+  font-size: 18px;
+}
+
+.forecast-title,
+.forecast-day,
 .forecast-max-temp {
   font-weight: 700;
 }
