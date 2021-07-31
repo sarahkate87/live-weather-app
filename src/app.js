@@ -94,7 +94,8 @@ function formatTime(timestamp) {
 }
 
 // Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row row-cols-5 row-cols-lg-5 g-2 g-lg-3">`;
   let days = ["Thur", "Fri", "Sat", "Sun", "Mon"];
@@ -120,6 +121,13 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "9e5720bf1c8d5cf0a9989c3fb45bc7a2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // Temperature & Data Display
@@ -161,6 +169,8 @@ function displayTemperature(response) {
   document.querySelector("#sunset").innerHTML = formatTime(
     new Date(response.data.sys.sunset * 1000)
   );
+
+  getForecast(response.data.coord);
 }
 
 // Search Form
@@ -203,4 +213,3 @@ let celsiusTemperature = null;
 let localTimezone = null;
 
 searchCity("London");
-displayForecast();
