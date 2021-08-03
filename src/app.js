@@ -1,4 +1,29 @@
-// Toggle Units
+function forecastToFahreinheit() {
+  let forecastMaxElement = document.querySelectorAll("#forecast-max");
+  forecastMaxElement.forEach(function (textContent) {
+    let currentTemp = textContent.innerHTML;
+    textContent.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  let forecastMinElement = document.querySelectorAll("#forecast-min");
+  forecastMinElement.forEach(function (textContent) {
+    let currentTemp = textContent.innerHTML;
+    textContent.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+}
+
+function forecastToCelsius() {
+  let forecastMaxElement = document.querySelectorAll("#forecast-max");
+  forecastMaxElement.forEach(function (textContent) {
+    let currentTemp = textContent.innerHTML;
+    textContent.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  let forecastMinElement = document.querySelectorAll("#forecast-min");
+  forecastMinElement.forEach(function (textContent) {
+    let currentTemp = textContent.innerHTML;
+    textContent.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+}
+
 function toggleUnits(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -18,12 +43,14 @@ function toggleUnits(event) {
   if (unit.innerHTML === "°F") {
     unit.innerHTML = "°C";
     currentUnit.innerHTML = "°F";
+    forecastToFahreinheit();
   } else {
     unit.innerHTML = "°F";
     currentUnit.innerHTML = "°C";
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     highTempElement.innerHTML = Math.round(celsiusHighTemperature);
     lowTempElement.innerHTML = Math.round(celsiusLowTemperature);
+    forecastToCelsius();
   }
 }
 
@@ -101,6 +128,7 @@ function formatDay(timestamp) {
 }
 
 // Forecast
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -121,12 +149,12 @@ function displayForecast(response) {
                       class="forecast-img"
                     />
                     <div class="forecast-temps">
-                      <span class="forecast-max-temp">${Math.round(
+                      <span id="forecast-max" class="forecast-max-temp">${Math.round(
                         forecastDay.temp.max
-                      )}°</span>
-                      <span class="forecast-min-temp">${Math.round(
+                      )}</span><span class="forecast-max-temp">°</span>
+                      <span id="forecast-min" class="forecast-min-temp">${Math.round(
                         forecastDay.temp.min
-                      )}°</span>
+                      )}</span><span class="forecast-min-temp">°</span>
                     </div>
                   </div>
       `;
