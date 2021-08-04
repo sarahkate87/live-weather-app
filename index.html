@@ -31,7 +31,7 @@
   <body>
     <div class="container">
       <div class="main-wrapper">
-        <div class="card mt-5 mb-3 p-2 p-md-4">
+        <div class="card mt-5 mb-4 p-2 p-md-4 main-card">
           <div class="card-body">
             <!-- Search Input Form -->
             <form class="input-group" id="update-search">
@@ -48,7 +48,7 @@
                 value="Update"
               />
               <button
-                class="btn btn-outline-secondary"
+                class="btn btn-outline-secondary location-btn"
                 type="button"
                 id="geolocate"
               >
@@ -58,7 +58,7 @@
             <div class="row mt-4 mt-md-5 current-weather-wrapper">
               <!-- Current Weather Column -->
               <div class="col-12 col-md-6 col-lg-5 border-end">
-                <div class="d-flex justify-content-start">
+                <div class="d-flex justify-content-start city-wrapper">
                   <h1 class="me-2 current-city">
                     <span id="city"></span>,
                     <span id="country"></span>
@@ -76,7 +76,7 @@
                     id="current-icon"
                     class="current-weather-icon me-4"
                   />
-                  <div class="float-start me-4">
+                  <div class="float-start me-4 current-temperature-wrapper">
                     <h2 class="current-temperature">
                       <span id="temperature"></span><span id="degrees">°C</span>
                     </h2>
@@ -91,7 +91,7 @@
                 </div>
               </div>
               <!-- Data Block Column -->
-              <div class="col">
+              <div class="col data-wrapper">
                 <!-- Data Block Row 1 -->
                 <div class="row align-items-start pb-2">
                   <div class="col">
@@ -147,21 +147,24 @@
               </div>
               <!-- Data Block Column End -->
               <!-- Forecast Block -->
-              <h4 class="mt-4 forecast-title">Forecast</h4>
-              <div class="card mt-3 p-1">
+              <h4 class="mt-5 forecast-title">Forecast</h4>
+              <div class="card mt-3 p-1 forecast-card">
                 <div class="card-body p-1" id="forecast"></div>
               </div>
             </div>
           </div>
         </div>
-        <small>
-          <a
-            href="https://github.com/sarahkate87/live-weather-app"
-            target="_blank"
-            >Open-source code</a
-          >
-          by Sarah Beverstock
-        </small>
+        <div class="footer-element">
+          <small>
+            <a
+              href="https://github.com/sarahkate87/live-weather-app"
+              target="_blank"
+              class="footer-link"
+              >Open-source code</a
+            >
+            by Sarah Beverstock
+          </small>
+        </div>
       </div>
     </div>
     <script src="src/app.js"></script>
