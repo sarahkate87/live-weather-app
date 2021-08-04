@@ -206,6 +206,9 @@ function displayTemperature(response) {
   document.querySelector("#sunset").innerHTML = formatTime(
     new Date(response.data.sys.sunset * 1000)
   );
+  document.querySelector("#last-updated").innerHTML = formatTime(
+    new Date(response.data.dt * 1000)
+  );
 
   getForecast(response.data.coord);
 }
@@ -248,5 +251,8 @@ currentLocation.addEventListener("click", getCurrentLocation);
 // Global
 let celsiusTemperature = null;
 let localTimezone = null;
+
+let refreshButton = document.querySelector("#refresh-btn");
+refreshButton.addEventListener("click", handleSearch);
 
 searchCity("London");
