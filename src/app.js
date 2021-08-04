@@ -141,9 +141,7 @@ function displayForecast(response) {
       <div class="col p-2 weather-forecast">
                     <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
                     <img
-                      src="https://openweathermap.org/img/wn/${
-                        forecastDay.weather[0].icon
-                      }@2x.png"
+                      src="img/${forecastDay.weather[0].icon}.svg"
                       alt=""
                       width="60"
                       class="forecast-img"
@@ -182,10 +180,7 @@ function displayTemperature(response) {
   document.querySelector("#country").innerHTML = response.data.sys.country;
   document
     .querySelector("#current-icon")
-    .setAttribute(
-      "src",
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    .setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
   document
     .querySelector("#current-icon")
     .setAttribute("alt", response.data.weather[0].description);
